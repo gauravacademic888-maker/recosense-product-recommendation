@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ info['name'] }} - RecoSense{% endblock %}
+{% block content %}
+<p><a class="link" href="/">&larr; Back to dashboard</a></p>
+<h1>{{ info['name'] }} <small style="color:var(--mute);font-weight:400">#{{ cid }} &middot; {{ info['city'] }}</small></h1>
+<p class="sub"><span class="pill">{{ c.segment }}</span> &nbsp; Suggested action: {{ note }}</p>
+
+<div class="stats">
+  <div class="stat"><b>{{ c.top_category }}</b><span>Main interest</span></div>
+  <div class="stat"><b>{{ c.frequency }}</b><span>Orders</span></div>
+  <div class="stat"><b>&#8377;{{ "{:,}".format(c.monetary) }}</b><span>Total spent</span></div>
+  <div class="stat"><b>{{ c.recency }} days</b><span>Since last purchase</span></div>
+</div>
+
+<h2>Recommended for You</h2>
+<div class="recs">
+  {% for r in recs %}
+  <div class="rec"><b>{{ r.name }}</b><small>{{ r.category }} &middot; &#8377;{{ "{:,}".format(r.price) }}</small><p>{{ r.reason }}</p></div>
+  {% endfor %}
+</div>
+
+<h2>Recent purchase history</h2>
+<div class="panel">
+  <table>
+    <tr><th>Date</th><th>Product</th><th>Category</th><th>Qty</th><th>Price</th></tr>
+    {% for h in history %}<tr><td>{{ h.date }}</td><td>{{ h.name }}</td><td>{{ h.category }}</td><td>{{ h.quantity }}</td><td>&#8377;{{ h.price }}</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

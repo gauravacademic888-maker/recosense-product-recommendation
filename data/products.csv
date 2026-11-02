@@ -1,0 +1,49 @@
+product_id,name,category,price,description
+1,Running Shoes,Sports,2999,running jogging shoes cushioned sports footwear
+2,Sports Socks,Sports,299,running socks breathable sports cotton
+3,Running Watch,Sports,4999,gps smartwatch running fitness tracker sports
+4,Gym T-Shirt,Sports,599,gym workout dry fit tshirt sports training
+5,Yoga Mat,Sports,899,yoga exercise mat fitness workout home
+6,Dumbbell Set,Sports,2499,dumbbell weights strength gym workout fitness
+7,Football,Sports,799,football outdoor sports ball team game
+8,Cricket Bat,Sports,1999,cricket bat willow sports outdoor game
+9,Wireless Earbuds,Electronics,1999,bluetooth earbuds wireless audio music electronics
+10,Power Bank,Electronics,1299,power bank charging battery portable electronics
+11,Smart Watch,Electronics,3999,smartwatch bluetooth fitness notifications electronics
+12,Bluetooth Speaker,Electronics,1799,speaker bluetooth portable music audio electronics
+13,USB Charger,Electronics,499,fast charger usb type c mobile electronics
+14,Laptop Bag,Electronics,999,laptop bag backpack office travel electronics
+15,Gaming Mouse,Electronics,1199,gaming mouse rgb usb computer electronics
+16,Mechanical Keyboard,Electronics,2799,keyboard mechanical gaming typing computer electronics
+17,Formal Shirt,Fashion,1299,formal shirt office cotton men fashion clothing
+18,Slim Fit Jeans,Fashion,1599,jeans denim slim fit casual fashion clothing
+19,Winter Jacket,Fashion,2999,winter jacket warm wool fashion clothing
+20,Leather Belt,Fashion,699,leather belt formal fashion accessory
+21,Casual Sneakers,Fashion,1999,sneakers casual shoes fashion footwear
+22,Sunglasses,Fashion,899,sunglasses uv protection fashion accessory
+23,Woolen Scarf,Fashion,499,scarf woolen winter warm fashion accessory
+24,Printed Tshirt,Fashion,499,tshirt printed cotton casual fashion clothing
+25,Table Lamp,Home,899,lamp led study desk home decor lighting
+26,Cotton Bedsheet,Home,1199,bedsheet cotton bedroom home soft
+27,Coffee Mug Set,Home,599,mug ceramic coffee tea kitchen home
+28,Wall Clock,Home,699,clock wall decor home living room
+29,Storage Box,Home,499,storage organizer box home room
+30,Air Fryer,Home,4499,air fryer kitchen cooking appliance home
+31,Curtains,Home,999,curtains window decor home bedroom
+32,Cushion Cover Set,Home,399,cushion cover sofa decor home living room
+33,Face Wash,Beauty,249,face wash cleanser skin care beauty
+34,Moisturizer,Beauty,399,moisturizer cream skin care hydration beauty
+35,Sunscreen,Beauty,449,sunscreen spf protection skin care beauty
+36,Hair Oil,Beauty,299,hair oil nourishing hair care beauty
+37,Perfume,Beauty,1299,perfume fragrance spray beauty
+38,Lipstick,Beauty,499,lipstick makeup color beauty
+39,Beard Trimmer,Beauty,1499,trimmer beard grooming electric beauty
+40,Shampoo,Beauty,349,shampoo hair care cleansing beauty
+41,Python Programming Book,Books,599,python programming coding book learning
+42,Data Science Handbook,Books,799,data science machine learning book learning
+43,Self Help Bestseller,Books,349,motivation habits self help book reading
+44,Mystery Novel,Books,299,mystery thriller novel fiction book reading
+45,Study Notebook Pack,Books,199,notebook study stationery pack school college
+46,Gel Pen Set,Books,149,pen gel stationery writing college
+47,Mathematics Guide,Books,499,mathematics exam guide study book learning
+48,Business Biography,Books,449,business biography entrepreneur book reading

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ p['name'] }} - Targeting{% endblock %}
+{% block content %}
+<p><a class="link" href="/">&larr; Back to dashboard</a></p>
+<h1>Who should see this product?</h1>
+<p class="sub">Business ka sawal: "Ye product kis customer ko recommend karun?"</p>
+<form class="search" method="get" onsubmit="location.href='/product/'+this.pid.value;return false;">
+  <select name="pid">
+    {% for x in all_products %}<option value="{{ x.product_id }}" {{ 'selected' if x.product_id == p['product_id'] }}>{{ x.name }} ({{ x.category }})</option>{% endfor %}
+  </select>
+  <button>Show customers</button>
+</form>
+<h2>{{ p['name'] }} <small style="color:var(--mute);font-weight:400">{{ p['category'] }} &middot; &#8377;{{ p['price'] }}</small></h2>
+<div class="panel">
+  <table>
+    <tr><th>Customer</th><th>Segment</th><th>Match score</th><th></th></tr>
+    {% for t in targets %}
+    <tr><td>{{ t.name }} (#{{ t.cid }})</td><td>{{ t.segment }}</td><td>{{ t.score }}</td><td><a class="link" href="/customer/{{ t.cid }}">View</a></td></tr>
+    {% else %}<tr><td colspan="4">Is product ke liye koi strong match nahi mila.</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}

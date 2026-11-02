@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Business Dashboard</h1>
+<p class="sub">Customer behaviour se samjho kaun kya pasand karta hai, aur kisko kya recommend karna hai.</p>
+
+<div class="stats">
+  <div class="stat"><b>{{ n_customers }}</b><span>Customers</span></div>
+  <div class="stat"><b>{{ n_products }}</b><span>Products</span></div>
+  <div class="stat"><b>{{ n_orders }}</b><span>Purchases</span></div>
+  <div class="stat"><b>&#8377;{{ "{:,}".format(revenue) }}</b><span>Total revenue</span></div>
+</div>
+
+<h2>Customer segments</h2>
+<div class="panel">
+  {% for name, n in counts.items() %}
+  <div class="bar">
+    <a href="/?segment={{ name|urlencode }}">{{ name }}</a>
+    <i style="width:{{ (n / max_count * 100)|round }}%"></i><span>{{ n }}</span>
+    <div class="note">{{ notes[name] }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>Customers {% if seg_filter %}<span class="pill">{{ seg_filter }}</span> <a class="link" href="/">clear</a>{% endif %}</h2>
+<div class="panel">
+  <form class="search" method="get">
+    <input name="q" placeholder="Name ya customer ID" value="{{ q }}">
+    <select name="segment">
+      <option value="">All segments</option>
+      {% for name in counts %}<option {{ 'selected' if name == seg_filter }}>{{ name }}</option>{% endfor %}
+    </select>
+    <button>Search</button>
+  </form>
+  <table>
+    <tr><th>ID</th><th>Name</th><th>City</th><th>Segment</th><th>Main interest</th><th>Orders</th><th>Spent</th><th></th></tr>
+    {% for r in rows %}
+    <tr>
+      <td>{{ r.customer_id }}</td><td>{{ r.name }}</td><td>{{ r.city }}</td>
+      <td><span class="pill {{ 'hv' if r.segment.startswith('High') else 'ia' if r.segment.startswith('At') else '' }}">{{ r.segment }}</span></td>
+      <td>{{ r.top_category }}</td><td>{{ r.frequency }}</td><td>&#8377;{{ "{:,}".format(r.monetary) }}</td>
+      <td><a class="link" href="/customer/{{ r.customer_id }}">View recommendations</a></td>
+    </tr>
+    {% else %}<tr><td colspan="8">Koi customer nahi mila.</td></tr>{% endfor %}
+  </table>
+</div>
+
+<h2>Model accuracy (Hit Rate@5)</h2>
+<div class="panel">
+  <p class="sub" style="margin-bottom:10px">{{ n_tested }} customers ka last purchase chhupa ke test kiya: top-5 recommendations mein wo product aaya?</p>
+  <table style="max-width:420px">
+    <tr><th>Method</th><th>Hit Rate@5</th></tr>
+    {% for m, s in scores.items() %}<tr><td>{{ m }}</td><td>{{ "%.1f"|format(s*100) }}%</td></tr>{% endfor %}
+  </table>
+</div>
+{% endblock %}
